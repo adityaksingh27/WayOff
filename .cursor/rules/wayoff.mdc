@@ -1,0 +1,15 @@
+---
+description: WayOff game design and map/voice constraints
+alwaysApply: true
+---
+
+# WayOff
+
+Hometown knowledge navigation game. Next.js App Router, MapLibre, OSM, Grok Voice, Grok Imagine.
+
+- No turn-by-turn routing. No destination marker until the player is within ~70m.
+- WAY (Voice copilot) never gives directions. Keep replies short (`src/lib/copilot.ts`).
+- Street names stay on. The hunt is a named building; the player must figure out which street it sits on. A street-name hint may cost Hometown IQ.
+- 3D extruded OSM buildings + heading-up camera. No Google Street View / turn-by-turn.
+- Ghost routes match the same hometown hunt (place + target), not only the same random drop URL. Share a drop link for an identical spawn.
+- Prefer OSM/Overpass/Nominatim/MapLibre. Do not add Google Maps unless asked.
